@@ -35,10 +35,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     'django_twilio',
+    # 'django_twilio',
     'social_django',
     'management',
     'crispy_forms',
+    'channels'
 
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -78,6 +79,15 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Library_management.wsgi.application'
+ASGI_APPLICATION = 'Library_management.asgi.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -144,6 +154,6 @@ SOCIAL_AUTH_FACEBOOK_SECRET = '56fa84e6f22bb3fc790311668dcd7de7'  #
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-TWILIO_ACCOUNT_SID = 'AC7d4bbdf1584abc2334c67bc37854cd91'
-TWILIO_AUTH_TOKEN = 'a5a9b1d0aa8c08cde8c1463f7be96172'
-TWILIO_PHONE_NUMBER= '+13343668893'
+#TWILIO_ACCOUNT_SID = 'AC7d4bbdf1584abc2334c67bc37854cd91'
+#TWILIO_AUTH_TOKEN = 'a5a9b1d0aa8c08cde8c1463f7be96172'
+#TWILIO_PHONE_NUMBER= '+13343668893'
