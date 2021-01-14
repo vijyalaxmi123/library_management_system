@@ -18,15 +18,24 @@ class HomeView(LoginRequiredMixin, TemplateView):
     template_name = "index.html" 
 
 
-to = '+919168487770'
-client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
-response = client.messages.create( body='Hello testing twilio in Django', 
-                    to=to, from_=settings.TWILIO_PHONE_NUMBER)
+#to = '+919168487770'
+#client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
+#response = client.messages.create( body='Hello testing twilio in Django', 
+                   # to=to, from_=settings.TWILIO_PHONE_NUMBER)
 # HOME PAGE
 def index(request):
     return render(
         request,
         'index.html',
+    )
+def contact_us(request):
+    return render(
+        request,
+        'contact_us.html',
+    )
+def room(request):
+    return render(request, 
+    'room.html',
     )
 
 
